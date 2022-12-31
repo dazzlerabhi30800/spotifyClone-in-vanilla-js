@@ -51,7 +51,7 @@ const handleDuration = (audioElement) => {
     let seconds =
       remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds;
     let totalTime = minutes + ":" + seconds;
-    return totalTime;
+    duration.textContent = totalTime;
   } else {
     return;
   }
@@ -75,7 +75,7 @@ playButton.addEventListener("click", () => {
     songItemPlay[songIndex].classList.remove("fa-pause-circle");
     songItemPlay[songIndex].classList.add("fa-play-circle");
   }
-  duration.textContent = handleDuration(audioElement);
+  handleDuration(audioElement);
 });
 songItems.forEach((element, i) => {
   element.getElementsByTagName("img")[0].src = songs[i].albumArt;
@@ -127,9 +127,13 @@ document.querySelectorAll(".song--item--play").forEach((element, i) => {
     }
     // playButton.classList.add("fa-pause-circle");
     songName.textContent = songs[i].songName;
-    setTimeout(() => {
-      duration.textContent = handleDuration(audioElement);
-    }, 80);
+    let myInterval;
+    setInterval(() => {
+      myInterval = handleDuration(audioElement);
+    }, 20);
+    setTimout(() => {
+      clearInterval(myInterval);
+    }, 500);
   });
 });
 
