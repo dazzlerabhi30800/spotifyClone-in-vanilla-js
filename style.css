@@ -132,19 +132,33 @@ nav > ul > li > a:hover {
   width: 100vw;
 }
 #progress--bar {
+  -webkit-appearance: none;
+  appearance: none;
   width: 90vw;
+  background: transparent;
+  border-radius: 30px;
   margin: 0 auto;
   cursor: pointer;
   transition: all 0.3s linear;
 }
-#progress--bar::-moz-range-thumb {
-  background-color: #1fdd60;
+#progress--bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #1fdd60;
+  box-shadow: 0px 0px 15px 2px #1fdd60;
+  height: 25px;
+  width: 25px;
+  margin-top: -3px;
+  border-radius: 50%;
 }
 #progress--bar::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   appearance: none;
-  background: #fff;
+  background: #292c2a;
   border-radius: 30px;
+}
+#progress--bar:focus {
+  outline: none;
 }
 
 .icons {
@@ -178,8 +192,8 @@ nav > ul > li > a:hover {
   transition: all 0.3s ease-in-out;
 }
 .visualizer.active {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   opacity: 1;
   overflow: visible;
 }
@@ -190,4 +204,15 @@ nav > ul > li > a:hover {
 .song--info .duration {
   color: #fff;
   font-weight: 700;
+}
+.volume--container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.volume--container > i {
+  color: white;
+}
+.volume--container > input:focus {
+  cursor: pointer;
 }

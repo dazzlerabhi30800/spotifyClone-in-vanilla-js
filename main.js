@@ -104,18 +104,21 @@ document.querySelectorAll(".song--item--play").forEach((element, i) => {
       element.classList.remove("fa-pause-circle");
     });
     // songItemPlay[songIndex].classList.add("fa-pause-circle");
-    e.target.classList.toggle("fa-pause-circle");
     songItems.forEach((element) => element.classList.remove("playing"));
-    if (e.target.classList.contains("fa-pause-circle")) {
-      // e.target.classList.remove("fa-play-circle");
+    if (
+      e.target.classList.contains("fa-play-circle") &&
+      !e.target.classList.contains("fa-pause-circle")
+    ) {
       audioElement.play();
+      e.target.classList.add("fa-pause-circle");
+      e.target.classList.remove("fa-play-circle");
       songItems[i].classList.add("playing");
       visualizer.classList.add("active");
       playButton.classList.add("fa-pause-circle");
       playButton.classList.remove("fa-play-circle");
     } else {
       e.target.classList.remove("fa-pause-circle");
-      // e.target.classList.add("fa-play-circle");
+      e.target.classList.add("fa-play-circle");
       audioElement.pause();
       songItems[i].classList.remove("playing");
       visualizer.classList.remove("active");
@@ -169,4 +172,50 @@ nextButton.addEventListener("click", () => {
   songPlayButton[songIndex].classList.add("fa-pause-circle");
   songItems[songIndex].classList.add("playing");
   playButton.classList.add("fa-pause-circle");
+});
+
+// Functions for controlling sound
+let volumeSlider = document.querySelector("#volume--slider");
+let volumeIcon = document.querySelector(".volume--icon");
+volumeSlider.addEventListener("change", () => {
+  audioElement.volume = volumeSlider.value / 100;
+  if (volumeSlider.value <= 0) {
+    volumeIcon.classList.remove("fa-volume-high");
+    volumeIcon.classList.add("fa-volume-xmark");
+  } else {
+    volumeIcon.classList.add("fa-volume-high");
+    volumeIcon.classList.remove("fa-volume-xmark");
+  }
+});
+volumeIcon.addEventListener("click", () => {
+  if (volumeIcon.classList.contains("fa-volume-high")) {
+    volumeIcon.classList.remove("fa-volume-high");
+    volumeIcon.classList.add("fa-volume-xmark");
+    audioElement.volume = 0;
+    volumeSlider.value = 0;
+  } else {
+    volumeIcon.classList.remove("fa-volume-xmark");
+    volumeIcon.classList.add("fa-volume-high");
+    audioElement.volume = 1;
+    volumeSlider.value = 100;
+  }
+});
+
+// Playing the song using spaceBar
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    if (audioElement.paused || audioElement.currentTime === 0) {
+      audioElement.play();
+      playButton.classList.add("fa-pause-circle");
+      playButton.classList.remove("fa-play-circle");
+      visualizer.classList.add("active");
+    } else {
+      audioElement.pause();
+      playButton.classList.remove("fa-pause-circle");
+      playButton.classList.add("fa-play-circle");
+      visualizer.classList.remove("active");
+    }
+  } else {
+    return;
+  }
 });
