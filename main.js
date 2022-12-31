@@ -129,7 +129,7 @@ document.querySelectorAll(".song--item--play").forEach((element, i) => {
     songName.textContent = songs[i].songName;
     setTimeout(() => {
       duration.textContent = handleDuration(audioElement);
-    }, 50);
+    }, 80);
   });
 });
 
