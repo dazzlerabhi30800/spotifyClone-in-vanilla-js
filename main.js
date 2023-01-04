@@ -186,9 +186,15 @@ volumeSlider.addEventListener("change", () => {
   if (volumeSlider.value <= 0) {
     volumeIcon.classList.remove("fa-volume-high");
     volumeIcon.classList.add("fa-volume-xmark");
+    volumeIcon.classList.remove("fa-volume-low");
+  } else if (volumeSlider.value <= 50) {
+    volumeIcon.classList.remove("fa-volume-high");
+    volumeIcon.classList.remove("fa-volume-xmark");
+    volumeIcon.classList.add("fa-volume-low");
   } else {
     volumeIcon.classList.add("fa-volume-high");
     volumeIcon.classList.remove("fa-volume-xmark");
+    volumeIcon.classList.remove("fa-volume-low");
   }
 });
 volumeIcon.addEventListener("click", () => {
