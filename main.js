@@ -113,6 +113,7 @@ audioElement.addEventListener("timeupdate", () => {
     songItemPlay[songIndex].classList.add("fa-play-circle");
     document.body.style.background =
       "radial-gradient(circle, #3b3a3a, #2e2d2d)";
+    container.style.backgroundImage = "url('./banner-3.jpg')";
   }
 });
 progressBar.addEventListener("change", () => {
