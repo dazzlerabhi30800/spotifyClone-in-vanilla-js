@@ -125,8 +125,9 @@ document.querySelectorAll(".song--item--play").forEach((element, i) => {
       element.classList.add("fa-play-circle");
       element.classList.remove("fa-pause-circle");
     });
-
-    container.style.backgroundImage = `url(${songs[songIndex].background})`;
+    setTimeout(() => {
+      container.style.backgroundImage = `url(${songs[songIndex].background})`;
+    }, 200);
     document.body.style.background = backgroundColor[songIndex];
     songItems.forEach((element) => element.classList.remove("playing"));
     if (
