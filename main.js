@@ -11,14 +11,9 @@ const songName = document.querySelector(".song--name");
 let songIndex = 0;
 let timeStamp = 0;
 let duration = document.querySelector(".duration");
-let minutes = 00;
-let seconds = 00;
-let timeInterval;
 const prevButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 const container = document.querySelector(".container");
-let totalDuration = 0;
-let limitDuration = 0;
 
 let backgroundColor = [
   "radial-gradient(circle, #0f0d85, #070852)",
@@ -130,14 +125,7 @@ document.querySelectorAll(".song--item--play").forEach((element, i) => {
       element.classList.add("fa-play-circle");
       element.classList.remove("fa-pause-circle");
     });
-    totalDuration = 0;
-    minutes = 0;
-    seconds = 0;
-    setTimeout(() => {
-      totalDuration = Math.floor(audioElement.duration);
-      console.log(totalDuration);
-    }, 40);
-    duration.textContent = minutes + ":" + seconds;
+
     container.style.backgroundImage = `url(${songs[songIndex].background})`;
     document.body.style.background = backgroundColor[songIndex];
     songItems.forEach((element) => element.classList.remove("playing"));
