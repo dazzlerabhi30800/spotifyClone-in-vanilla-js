@@ -19,8 +19,10 @@ let backgroundColor = [
   "radial-gradient(circle, #0f0d85, #070852)",
   " radial-gradient(circle, #606061, #242323)",
   "radial-gradient(circle, #f56855, #0e87ac)",
-  "linear-gradient(90deg, #f0610e, #20bff0)",
-  "radial-gradient(circle, #f14949, #f52626)",
+  // "linear-gradient(90deg, #f0610e, #20bff0)",
+  " radial-gradient(50% 98.88% at 50% 50%, #5E9CF9 0%, #1746EF 100%)",
+  // "radial-gradient(circle, #f14949, #f52626)",
+  "linear-gradient(243.18deg, #F43787 0%, #EF1E1E 100%)",
 ];
 
 let songs = [
