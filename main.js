@@ -28,31 +28,31 @@ let songs = [
     songName: "Afrojack - Lose you",
     filePath: "./Audio/1.mp3",
     albumArt: "./Album Art/1.jpg",
-    background: "./backgrounds/afrojack.jpg",
+    background: "./afrojack.jpg",
   },
   {
     songName: "Calvin Harris - Feels",
     filePath: "./Audio/2.mp3",
     albumArt: "./Album Art/2.jpg",
-    background: "./backgrounds/calvin-harris.jpg",
+    background: "./calvin-harris.jpg",
   },
   {
     songName: "Charlie Puth - Light Switch",
     filePath: "./Audio/3.mp3",
     albumArt: "./Album Art/3.jpg",
-    background: "./backgrounds/charlie-puth-3.png",
+    background: "./charlie-puth-3.png",
   },
   {
     songName: "Ed Sheeran - Bad Habits ",
     filePath: "./Audio/4.mp3",
     albumArt: "./Album Art/4.jpg",
-    background: "./backgrounds/ed-sheeran.jpg",
+    background: "./ed-sheeran.jpg",
   },
   {
     songName: "Troye Sivan - Easy",
     filePath: "./Audio/5.mp3",
     albumArt: "./Album Art/5.jpg",
-    background: "./backgrounds/troye-sivan-2.jpg",
+    background: "./troye-sivan-2.jpg",
   },
 ];
 
@@ -125,9 +125,7 @@ document.querySelectorAll(".song--item--play").forEach((element, i) => {
       element.classList.add("fa-play-circle");
       element.classList.remove("fa-pause-circle");
     });
-    setTimeout(() => {
-      container.style.backgroundImage = `url(${songs[songIndex].background})`;
-    }, 200);
+    container.style.backgroundImage = `url(${songs[songIndex].background})`;
     document.body.style.background = backgroundColor[songIndex];
     songItems.forEach((element) => element.classList.remove("playing"));
     if (
