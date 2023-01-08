@@ -436,7 +436,7 @@ nav > ul > li > a:hover {
   }
   .bottom {
     position: relative;
-    height: 230px;
+    height: auto;
   }
   #progress--bar {
     width: 80vw;
